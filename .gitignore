@@ -1,4 +1,4 @@
 node_modules
 dist
 .env
-trash.js
+.DS_Store
