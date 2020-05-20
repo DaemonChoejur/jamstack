@@ -1,5 +1,4 @@
 ---
-
 title: News
 layout: base.njk
 pagination:  
@@ -7,29 +6,49 @@ pagination:
     size: 1
     alias: news
 permalink: /{{ news.country }}/index.html
-
 ---
 
-<div class="container">
-    <h1> JAM Stack </h1>
+<style>
+    .container {
+        align: center;
+    }
+    .card {
+        align: center;
+    }
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 10%;
+    }
+</style>
+
+<div class="container-fluid">
+    <h1> News Blogs </h1>
 </div>
 <div class="vibe"></div>
 
-<ul>
-    {% for article in news.articles %}
-        <li>
-            <h2>
-                <a href="{{article.url}}">
-                    {{article.title}}
-                </a>
-            </h2>
-            <span>
-                {{article.source.name}} - <time>
-                    {{article.publishedAt}}</time>
-            </span>
-        </li>
+{% for article in news.articles %}
+    <div class="card">
+        <img class="card-img-top" src="{{article.urlToImage}}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{article.title}}</h5>
+            <p class="card-text">{{article.description}}</p>
+            <a href="{{article.url}}" class="btn btn-primary">{{article.source.name}}</a>
+        </div>
+    </div>
 
-    {% endfor %}
-</ul>
+{% endfor %}
+
+{# <h2>
+        <a href="{{article.url}}">
+            {{article.title}}
+        </a>
+    </h2>
+    <h4> {{article.description}} </h4>
+    <span>
+        {{article.source.name}} - <time>
+            {{article.publishedAt}}</time>
+    </span> #}
 
 <script src="/js/vibe.js"></script>

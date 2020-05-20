@@ -1,10 +1,10 @@
 ---
-title: JAM Stack About
+title: JAM Stack News API
 layout: base.njk
 ---
 
 <div class="container">
-    <h1> JAM Stack About</h1>
+    <h1> JAM Stack News API</h1>
 </div>
 
 <p> Pre-rendering files and serving them from a CDN without needing web servers.
@@ -12,8 +12,10 @@ JAM Stack architecture decouples the front end presentation layer from the backe
 I will be using Eleventy as SSG.
 </p>
 
-
 {% for item in news %}
-    <a href="/{{item.country}}"> {{item.country}} </a>
+    <a href="/{{item.country}}">
+        <img src="https://www.countryflags.io/{{item.country}}/shiny/64.png">
+        {{item.country}}
+    </a>
 
 {% endfor %}
